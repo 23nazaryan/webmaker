@@ -20,10 +20,10 @@ class CreateTasksTable extends Migration
             $table->bigInteger('created_by')->unsigned();
             $table->foreign('created_by')->references('id')->on('users');
 
-            $table->bigInteger('assigned_to')->unsigned();
+            $table->bigInteger('assigned_to')->nullable()->unsigned();
             $table->foreign('assigned_to')->references('id')->on('users');
 
-            $table->integer('status')->default(0);
+            $table->integer('status')->default(1);
             $table->text('description');
             $table->timestamps();
         });

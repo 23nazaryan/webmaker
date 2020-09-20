@@ -30,10 +30,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /*public function posts()
+    public function tasks()
     {
-        return $this->hasMany(Post::class);
-    }*/
+        return $this->hasMany(Tasks::class, 'created_by');
+    }
 
     public static function add($fields)
     {

@@ -2,21 +2,20 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'TasksController@list');
+Route::post('search', 'TasksController@search');
 
 /*Auth*/
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/logout', 'AuthController@logout');
-});
-
-/*Developer*/
-Route::group(['middleware' => 'developer'], function () {
-
-});
-
-/*Manager*/
-Route::group(['middleware' => 'manager'], function () {
-
+    Route::get('/tasks', 'TasksController@list')->name('tasks.list');
+    Route::get('/show/{id}', 'TasksController@show')->name('task.show');
+    Route::get('/create', 'TasksController@create');
+    Route::post('/create', 'TasksController@store');
+    Route::get('/edit/{id}', 'TasksController@edit')->name('task.edit');
+    Route::post('/edit/{id}', 'TasksController@update');
+    Route::get('/delete/{id}', 'TasksController@destroy')->name('task.delete');
+    Route::get('/status', 'TasksController@status');
 });
 
 /*Guest*/

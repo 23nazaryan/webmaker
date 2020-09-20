@@ -27,12 +27,11 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav text-uppercase">
-                    <li><a href="/">Homepage</a></li>
-                    <li><a href="about-me.html">ABOUT ME </a></li>
-                    <li><a href="contact.html">CONTACT</a></li>
+                    <li><a href="<?= route('tasks.list') ?>">Tasks</a></li>
                 </ul>
                 <ul class="nav navbar-nav text-uppercase pull-right">
                     @if(\Illuminate\Support\Facades\Auth::check())
+                        <li><a href="javascript:;">{{\Illuminate\Support\Facades\Auth::user()->name}}</a></li>
                         <li><a href="/logout">Logout</a></li>
                     @else
                         <li><a href="/register">Register</a></li>
@@ -60,5 +59,6 @@
     </div>
 </footer>
 <script src="/js/script.js"></script>
+<script src="/js/main.js"></script>
 </body>
 </html>

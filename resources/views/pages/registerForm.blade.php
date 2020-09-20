@@ -39,6 +39,7 @@
                         </form>
                     </div>
                 </div>
+                @include('pages._sidebar')
             </div>
         </div>
     </div>
